@@ -1,0 +1,793 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1932495C284DEA0F009B6937 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 1932495B284DEA0E009B6937 /* Podfile */; };
+		19C16C04284C839400892A79 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C16C03284C839400892A79 /* AppDelegate.swift */; };
+		19C16C08284C839400892A79 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C16C07284C839400892A79 /* ViewController.swift */; };
+		19C16C0D284C839700892A79 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 19C16C0C284C839700892A79 /* Assets.xcassets */; };
+		19C16C10284C839700892A79 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19C16C0E284C839700892A79 /* LaunchScreen.storyboard */; };
+		19C16C1B284C839700892A79 /* EasyDrawTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C16C1A284C839700892A79 /* EasyDrawTests.swift */; };
+		19C16C25284C839700892A79 /* EasyDrawUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C16C24284C839700892A79 /* EasyDrawUITests.swift */; };
+		19C16C27284C839700892A79 /* EasyDrawUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C16C26284C839700892A79 /* EasyDrawUITestsLaunchTests.swift */; };
+		19C16C35284C929300892A79 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C16C33284C929200892A79 /* MainCoordinator.swift */; };
+		19C16C36284C929300892A79 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C16C34284C929200892A79 /* Coordinator.swift */; };
+		19C16C3C284C952200892A79 /* UIView+Positioning.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C16C3A284C952200892A79 /* UIView+Positioning.m */; };
+		19C16C3D284C952200892A79 /* Calayer + Positioning.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C16C3B284C952200892A79 /* Calayer + Positioning.m */; };
+		19C16C49284C9DE700892A79 /* CanvasViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C16C48284C9DE700892A79 /* CanvasViewController.swift */; };
+		19C16C4B284DCB5300892A79 /* CanvasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C16C4A284DCB5200892A79 /* CanvasView.swift */; };
+		19C16C4D284DCBD400892A79 /* Shape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C16C4C284DCBD400892A79 /* Shape.swift */; };
+		292F20D7336ECB451C5ABCEC /* Pods_EasyDraw_EasyDrawUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 541B7F14CADB9ABD469964EA /* Pods_EasyDraw_EasyDrawUITests.framework */; };
+		77DC11F4E389965880183CF0 /* Pods_EasyDrawTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 392F900326A373EEFE732D3B /* Pods_EasyDrawTests.framework */; };
+		B30D6622C1BFA8CB80AA8F05 /* Pods_EasyDraw.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42512E68FE36B67DE0B8274D /* Pods_EasyDraw.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		19C16C17284C839700892A79 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 19C16BF8284C839300892A79 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 19C16BFF284C839300892A79;
+			remoteInfo = EasyDraw;
+		};
+		19C16C21284C839700892A79 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 19C16BF8284C839300892A79 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 19C16BFF284C839300892A79;
+			remoteInfo = EasyDraw;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		19262C78F40332045F62C9F3 /* Pods-EasyDraw-EasyDrawUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EasyDraw-EasyDrawUITests.release.xcconfig"; path = "Target Support Files/Pods-EasyDraw-EasyDrawUITests/Pods-EasyDraw-EasyDrawUITests.release.xcconfig"; sourceTree = "<group>"; };
+		1932495B284DEA0E009B6937 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		19C16C00284C839300892A79 /* EasyDraw.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EasyDraw.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		19C16C03284C839400892A79 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		19C16C07284C839400892A79 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		19C16C0C284C839700892A79 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		19C16C0F284C839700892A79 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		19C16C11284C839700892A79 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		19C16C16284C839700892A79 /* EasyDrawTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EasyDrawTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		19C16C1A284C839700892A79 /* EasyDrawTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EasyDrawTests.swift; sourceTree = "<group>"; };
+		19C16C20284C839700892A79 /* EasyDrawUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EasyDrawUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		19C16C24284C839700892A79 /* EasyDrawUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EasyDrawUITests.swift; sourceTree = "<group>"; };
+		19C16C26284C839700892A79 /* EasyDrawUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EasyDrawUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		19C16C33284C929200892A79 /* MainCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
+		19C16C34284C929200892A79 /* Coordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		19C16C38284C952200892A79 /* UIView+Positioning.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Positioning.h"; sourceTree = "<group>"; };
+		19C16C39284C952200892A79 /* Calayer + Positioning.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Calayer + Positioning.h"; sourceTree = "<group>"; };
+		19C16C3A284C952200892A79 /* UIView+Positioning.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Positioning.m"; sourceTree = "<group>"; };
+		19C16C3B284C952200892A79 /* Calayer + Positioning.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Calayer + Positioning.m"; sourceTree = "<group>"; };
+		19C16C47284C9A5E00892A79 /* EasyDraw-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "EasyDraw-Bridging-Header.h"; sourceTree = "<group>"; };
+		19C16C48284C9DE700892A79 /* CanvasViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanvasViewController.swift; sourceTree = "<group>"; };
+		19C16C4A284DCB5200892A79 /* CanvasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanvasView.swift; sourceTree = "<group>"; };
+		19C16C4C284DCBD400892A79 /* Shape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shape.swift; sourceTree = "<group>"; };
+		392F900326A373EEFE732D3B /* Pods_EasyDrawTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EasyDrawTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		42512E68FE36B67DE0B8274D /* Pods_EasyDraw.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EasyDraw.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		541B7F14CADB9ABD469964EA /* Pods_EasyDraw_EasyDrawUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EasyDraw_EasyDrawUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		654A55BB012779362803BDDF /* Pods-EasyDrawTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EasyDrawTests.release.xcconfig"; path = "Target Support Files/Pods-EasyDrawTests/Pods-EasyDrawTests.release.xcconfig"; sourceTree = "<group>"; };
+		B2BEDB2C55F242DC1CECE76B /* Pods-EasyDraw.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EasyDraw.debug.xcconfig"; path = "Target Support Files/Pods-EasyDraw/Pods-EasyDraw.debug.xcconfig"; sourceTree = "<group>"; };
+		E3EF76C09DB13BBB2DD7C51E /* Pods-EasyDrawTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EasyDrawTests.debug.xcconfig"; path = "Target Support Files/Pods-EasyDrawTests/Pods-EasyDrawTests.debug.xcconfig"; sourceTree = "<group>"; };
+		F0B3F662D760D9A03A19E3B7 /* Pods-EasyDraw.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EasyDraw.release.xcconfig"; path = "Target Support Files/Pods-EasyDraw/Pods-EasyDraw.release.xcconfig"; sourceTree = "<group>"; };
+		F8245EFE793375729A7410D2 /* Pods-EasyDraw-EasyDrawUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EasyDraw-EasyDrawUITests.debug.xcconfig"; path = "Target Support Files/Pods-EasyDraw-EasyDrawUITests/Pods-EasyDraw-EasyDrawUITests.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		19C16BFD284C839300892A79 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B30D6622C1BFA8CB80AA8F05 /* Pods_EasyDraw.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		19C16C13284C839700892A79 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				77DC11F4E389965880183CF0 /* Pods_EasyDrawTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		19C16C1D284C839700892A79 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				292F20D7336ECB451C5ABCEC /* Pods_EasyDraw_EasyDrawUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		19C16BF7284C839300892A79 = {
+			isa = PBXGroup;
+			children = (
+				1932495B284DEA0E009B6937 /* Podfile */,
+				19C16C02284C839300892A79 /* EasyDraw */,
+				19C16C19284C839700892A79 /* EasyDrawTests */,
+				19C16C23284C839700892A79 /* EasyDrawUITests */,
+				19C16C01284C839300892A79 /* Products */,
+				DA47BDA933552C86030D3C69 /* Pods */,
+				31B90CE32738A82105877995 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		19C16C01284C839300892A79 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				19C16C00284C839300892A79 /* EasyDraw.app */,
+				19C16C16284C839700892A79 /* EasyDrawTests.xctest */,
+				19C16C20284C839700892A79 /* EasyDrawUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		19C16C02284C839300892A79 /* EasyDraw */ = {
+			isa = PBXGroup;
+			children = (
+				19C16C03284C839400892A79 /* AppDelegate.swift */,
+				19C16C07284C839400892A79 /* ViewController.swift */,
+				19C16C34284C929200892A79 /* Coordinator.swift */,
+				19C16C33284C929200892A79 /* MainCoordinator.swift */,
+				19C16C0C284C839700892A79 /* Assets.xcassets */,
+				19C16C0E284C839700892A79 /* LaunchScreen.storyboard */,
+				19C16C11284C839700892A79 /* Info.plist */,
+				19C16C37284C952100892A79 /* UIView+Positioning */,
+				19C16C47284C9A5E00892A79 /* EasyDraw-Bridging-Header.h */,
+				19C16C48284C9DE700892A79 /* CanvasViewController.swift */,
+				19C16C4A284DCB5200892A79 /* CanvasView.swift */,
+				19C16C4C284DCBD400892A79 /* Shape.swift */,
+			);
+			path = EasyDraw;
+			sourceTree = "<group>";
+		};
+		19C16C19284C839700892A79 /* EasyDrawTests */ = {
+			isa = PBXGroup;
+			children = (
+				19C16C1A284C839700892A79 /* EasyDrawTests.swift */,
+			);
+			path = EasyDrawTests;
+			sourceTree = "<group>";
+		};
+		19C16C23284C839700892A79 /* EasyDrawUITests */ = {
+			isa = PBXGroup;
+			children = (
+				19C16C24284C839700892A79 /* EasyDrawUITests.swift */,
+				19C16C26284C839700892A79 /* EasyDrawUITestsLaunchTests.swift */,
+			);
+			path = EasyDrawUITests;
+			sourceTree = "<group>";
+		};
+		19C16C37284C952100892A79 /* UIView+Positioning */ = {
+			isa = PBXGroup;
+			children = (
+				19C16C38284C952200892A79 /* UIView+Positioning.h */,
+				19C16C39284C952200892A79 /* Calayer + Positioning.h */,
+				19C16C3A284C952200892A79 /* UIView+Positioning.m */,
+				19C16C3B284C952200892A79 /* Calayer + Positioning.m */,
+			);
+			path = "UIView+Positioning";
+			sourceTree = "<group>";
+		};
+		31B90CE32738A82105877995 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				42512E68FE36B67DE0B8274D /* Pods_EasyDraw.framework */,
+				541B7F14CADB9ABD469964EA /* Pods_EasyDraw_EasyDrawUITests.framework */,
+				392F900326A373EEFE732D3B /* Pods_EasyDrawTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DA47BDA933552C86030D3C69 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B2BEDB2C55F242DC1CECE76B /* Pods-EasyDraw.debug.xcconfig */,
+				F0B3F662D760D9A03A19E3B7 /* Pods-EasyDraw.release.xcconfig */,
+				F8245EFE793375729A7410D2 /* Pods-EasyDraw-EasyDrawUITests.debug.xcconfig */,
+				19262C78F40332045F62C9F3 /* Pods-EasyDraw-EasyDrawUITests.release.xcconfig */,
+				E3EF76C09DB13BBB2DD7C51E /* Pods-EasyDrawTests.debug.xcconfig */,
+				654A55BB012779362803BDDF /* Pods-EasyDrawTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		19C16BFF284C839300892A79 /* EasyDraw */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 19C16C2A284C839700892A79 /* Build configuration list for PBXNativeTarget "EasyDraw" */;
+			buildPhases = (
+				30AF970B00F069592364A6A9 /* [CP] Check Pods Manifest.lock */,
+				19C16BFC284C839300892A79 /* Sources */,
+				19C16BFD284C839300892A79 /* Frameworks */,
+				19C16BFE284C839300892A79 /* Resources */,
+				852DA92322A02EFAC58B225A /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = EasyDraw;
+			productName = EasyDraw;
+			productReference = 19C16C00284C839300892A79 /* EasyDraw.app */;
+			productType = "com.apple.product-type.application";
+		};
+		19C16C15284C839700892A79 /* EasyDrawTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 19C16C2D284C839700892A79 /* Build configuration list for PBXNativeTarget "EasyDrawTests" */;
+			buildPhases = (
+				9FE256BFD329FAEB1FDDF082 /* [CP] Check Pods Manifest.lock */,
+				19C16C12284C839700892A79 /* Sources */,
+				19C16C13284C839700892A79 /* Frameworks */,
+				19C16C14284C839700892A79 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				19C16C18284C839700892A79 /* PBXTargetDependency */,
+			);
+			name = EasyDrawTests;
+			productName = EasyDrawTests;
+			productReference = 19C16C16284C839700892A79 /* EasyDrawTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		19C16C1F284C839700892A79 /* EasyDrawUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 19C16C30284C839700892A79 /* Build configuration list for PBXNativeTarget "EasyDrawUITests" */;
+			buildPhases = (
+				0DA852EC02AB5F0623A05FAA /* [CP] Check Pods Manifest.lock */,
+				19C16C1C284C839700892A79 /* Sources */,
+				19C16C1D284C839700892A79 /* Frameworks */,
+				19C16C1E284C839700892A79 /* Resources */,
+				9840701B642216ACA2A07009 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				19C16C22284C839700892A79 /* PBXTargetDependency */,
+			);
+			name = EasyDrawUITests;
+			productName = EasyDrawUITests;
+			productReference = 19C16C20284C839700892A79 /* EasyDrawUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		19C16BF8284C839300892A79 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1320;
+				LastUpgradeCheck = 1320;
+				TargetAttributes = {
+					19C16BFF284C839300892A79 = {
+						CreatedOnToolsVersion = 13.2.1;
+					};
+					19C16C15284C839700892A79 = {
+						CreatedOnToolsVersion = 13.2.1;
+						TestTargetID = 19C16BFF284C839300892A79;
+					};
+					19C16C1F284C839700892A79 = {
+						CreatedOnToolsVersion = 13.2.1;
+						TestTargetID = 19C16BFF284C839300892A79;
+					};
+				};
+			};
+			buildConfigurationList = 19C16BFB284C839300892A79 /* Build configuration list for PBXProject "EasyDraw" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 19C16BF7284C839300892A79;
+			productRefGroup = 19C16C01284C839300892A79 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				19C16BFF284C839300892A79 /* EasyDraw */,
+				19C16C15284C839700892A79 /* EasyDrawTests */,
+				19C16C1F284C839700892A79 /* EasyDrawUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		19C16BFE284C839300892A79 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1932495C284DEA0F009B6937 /* Podfile in Resources */,
+				19C16C10284C839700892A79 /* LaunchScreen.storyboard in Resources */,
+				19C16C0D284C839700892A79 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		19C16C14284C839700892A79 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		19C16C1E284C839700892A79 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0DA852EC02AB5F0623A05FAA /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-EasyDraw-EasyDrawUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		30AF970B00F069592364A6A9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-EasyDraw-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		852DA92322A02EFAC58B225A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-EasyDraw/Pods-EasyDraw-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-EasyDraw/Pods-EasyDraw-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-EasyDraw/Pods-EasyDraw-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9840701B642216ACA2A07009 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-EasyDraw-EasyDrawUITests/Pods-EasyDraw-EasyDrawUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-EasyDraw-EasyDrawUITests/Pods-EasyDraw-EasyDrawUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-EasyDraw-EasyDrawUITests/Pods-EasyDraw-EasyDrawUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9FE256BFD329FAEB1FDDF082 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-EasyDrawTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		19C16BFC284C839300892A79 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				19C16C08284C839400892A79 /* ViewController.swift in Sources */,
+				19C16C35284C929300892A79 /* MainCoordinator.swift in Sources */,
+				19C16C4B284DCB5300892A79 /* CanvasView.swift in Sources */,
+				19C16C36284C929300892A79 /* Coordinator.swift in Sources */,
+				19C16C4D284DCBD400892A79 /* Shape.swift in Sources */,
+				19C16C04284C839400892A79 /* AppDelegate.swift in Sources */,
+				19C16C3C284C952200892A79 /* UIView+Positioning.m in Sources */,
+				19C16C49284C9DE700892A79 /* CanvasViewController.swift in Sources */,
+				19C16C3D284C952200892A79 /* Calayer + Positioning.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		19C16C12284C839700892A79 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				19C16C1B284C839700892A79 /* EasyDrawTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		19C16C1C284C839700892A79 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				19C16C27284C839700892A79 /* EasyDrawUITestsLaunchTests.swift in Sources */,
+				19C16C25284C839700892A79 /* EasyDrawUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		19C16C18284C839700892A79 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 19C16BFF284C839300892A79 /* EasyDraw */;
+			targetProxy = 19C16C17284C839700892A79 /* PBXContainerItemProxy */;
+		};
+		19C16C22284C839700892A79 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 19C16BFF284C839300892A79 /* EasyDraw */;
+			targetProxy = 19C16C21284C839700892A79 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		19C16C0E284C839700892A79 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				19C16C0F284C839700892A79 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		19C16C28284C839700892A79 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		19C16C29284C839700892A79 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		19C16C2B284C839700892A79 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B2BEDB2C55F242DC1CECE76B /* Pods-EasyDraw.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8DHTB2U6AB;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = EasyDraw/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tencent.EasyDraw;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "EasyDraw/EasyDraw-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		19C16C2C284C839700892A79 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F0B3F662D760D9A03A19E3B7 /* Pods-EasyDraw.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8DHTB2U6AB;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = EasyDraw/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tencent.EasyDraw;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "EasyDraw/EasyDraw-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		19C16C2E284C839700892A79 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E3EF76C09DB13BBB2DD7C51E /* Pods-EasyDrawTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8DHTB2U6AB;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tencent.EasyDrawTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EasyDraw.app/EasyDraw";
+			};
+			name = Debug;
+		};
+		19C16C2F284C839700892A79 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 654A55BB012779362803BDDF /* Pods-EasyDrawTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8DHTB2U6AB;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tencent.EasyDrawTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EasyDraw.app/EasyDraw";
+			};
+			name = Release;
+		};
+		19C16C31284C839700892A79 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F8245EFE793375729A7410D2 /* Pods-EasyDraw-EasyDrawUITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8DHTB2U6AB;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tencent.EasyDrawUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = EasyDraw;
+			};
+			name = Debug;
+		};
+		19C16C32284C839700892A79 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 19262C78F40332045F62C9F3 /* Pods-EasyDraw-EasyDrawUITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8DHTB2U6AB;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tencent.EasyDrawUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = EasyDraw;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		19C16BFB284C839300892A79 /* Build configuration list for PBXProject "EasyDraw" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				19C16C28284C839700892A79 /* Debug */,
+				19C16C29284C839700892A79 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		19C16C2A284C839700892A79 /* Build configuration list for PBXNativeTarget "EasyDraw" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				19C16C2B284C839700892A79 /* Debug */,
+				19C16C2C284C839700892A79 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		19C16C2D284C839700892A79 /* Build configuration list for PBXNativeTarget "EasyDrawTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				19C16C2E284C839700892A79 /* Debug */,
+				19C16C2F284C839700892A79 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		19C16C30284C839700892A79 /* Build configuration list for PBXNativeTarget "EasyDrawUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				19C16C31284C839700892A79 /* Debug */,
+				19C16C32284C839700892A79 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 19C16BF8284C839300892A79 /* Project object */;
+}

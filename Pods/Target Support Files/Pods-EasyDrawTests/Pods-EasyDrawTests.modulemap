@@ -1,0 +1,6 @@
+framework module Pods_EasyDrawTests {
+  umbrella header "Pods-EasyDrawTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

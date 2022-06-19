@@ -1,0 +1,470 @@
+//
+//  Copyright (c) Microsoft Corporation. All rights reserved.
+//  Licensed under the MIT License.
+//
+
+import UIKit
+
+// MARK: BadgeViewDataSource
+@objc(MSFBadgeViewDataSource)
+open class BadgeViewDataSource: NSObject {
+    @objc open var text: String
+    @objc open var style: BadgeView.Style
+    @objc open var size: BadgeView.Size
+    @objc open var customView: UIView?
+    @objc open var customViewVerticalPadding: NSNumber?
+    @objc open var customViewPaddingLeft: NSNumber?
+    @objc open var customViewPaddingRight: NSNumber?
+
+    @objc public init(text: String, style: BadgeView.Style = .default, size: BadgeView.Size = .medium) {
+        self.text = text
+        self.style = style
+        self.size = size
+        super.init()
+    }
+
+    @objc public convenience init(
+        text: String,
+        style: BadgeView.Style = .default,
+        size: BadgeView.Size = .medium,
+        customView: UIView? = nil,
+        customViewVerticalPadding: NSNumber? = nil,
+        customViewPaddingLeft: NSNumber? = nil,
+        customViewPaddingRight: NSNumber? = nil
+    ) {
+        self.init(text: text, style: style, size: size)
+
+        self.customView = customView
+        self.customViewVerticalPadding = customViewVerticalPadding
+        self.customViewPaddingLeft = customViewPaddingLeft
+        self.customViewPaddingRight = customViewPaddingRight
+    }
+}
+
+// MARK: - BadgeViewDelegate
+@objc(MSFBadgeViewDelegate)
+public protocol BadgeViewDelegate {
+    func didSelectBadge(_ badge: BadgeView)
+    func didTapSelectedBadge(_ badge: BadgeView)
+}
+
+// MARK: - Badge Colors
+
+private extension Colors {
+    struct Badge {
+        static var background: UIColor = .clear
+        static var backgroundDisabled = UIColor(light: surfaceSecondary, dark: gray700)
+        static var backgroundError = UIColor(light: Palette.dangerTint40.color, dark: Palette.dangerTint30.color)
+        static var backgroundErrorSelected: UIColor = error
+        static var backgroundWarning = UIColor(light: Palette.warningTint40.color, dark: Palette.warningTint30.color)
+        static var backgroundWarningSelected: UIColor = warning
+        static var textSelected: UIColor = textOnAccent
+        static var textDisabled: UIColor = textSecondary
+        static var textError: UIColor = Palette.dangerShade20.color
+        static var textErrorSelected: UIColor = textOnAccent
+        static var textWarning = UIColor(light: Palette.warningShade30.color, dark: Palette.warningPrimary.color)
+        static var textWarningSelected: UIColor = .black
+    }
+}
+
+// MARK: - BadgeView
+
+/**
+ `BadgeView` is used to present text with a colored background in the form of a "badge". It is used in `BadgeField` to represent a selected item.
+
+ `BadgeView` can be selected with a tap gesture and tapped again after entering a selected state for the purpose of displaying more details about the entity represented by the selected badge.
+ */
+@objc(MSFBadgeView)
+open class BadgeView: UIView {
+    @objc(MSFBadgeViewStyle)
+    public enum Style: Int {
+        case `default`
+        case warning
+        case error
+    }
+
+    @objc(MSFBadgeViewSize)
+    public enum Size: Int, CaseIterable {
+        case small
+        case medium
+
+        var labelTextStyle: TextStyle {
+            switch self {
+            case .small:
+                return .footnote
+            case .medium:
+                return .subhead
+            }
+        }
+
+        var horizontalPadding: CGFloat {
+            switch self {
+            case .small:
+                return 4
+            case .medium:
+                return 5
+            }
+        }
+
+        var verticalPadding: CGFloat {
+            switch self {
+            case .small:
+                return 1.5
+            case .medium:
+                return 4
+            }
+        }
+    }
+
+    private struct Constants {
+        static let defaultMinWidth: CGFloat = 25
+        static let backgroundCornerRadius: CGFloat = 3
+    }
+
+    @objc open var dataSource: BadgeViewDataSource? {
+        didSet {
+            reload()
+        }
+    }
+
+    @objc open weak var delegate: BadgeViewDelegate?
+
+    @objc open var isActive: Bool = true {
+        didSet {
+            updateColors()
+            isUserInteractionEnabled = isActive
+            if isActive {
+                accessibilityTraits.remove(.notEnabled)
+            } else {
+                accessibilityTraits.insert(.notEnabled)
+            }
+        }
+    }
+
+    @objc open var isSelected: Bool = false {
+        didSet {
+            updateColors()
+            if isSelected {
+                accessibilityTraits.insert(.selected)
+            } else {
+                accessibilityTraits.remove(.selected)
+            }
+        }
+    }
+
+    private var _labelTextColor: UIColor?
+    @objc open var labelTextColor: UIColor? {
+        get {
+            if let customLabelTextColor = _labelTextColor {
+                return customLabelTextColor
+            }
+            switch style {
+            case .default:
+                if let window = window {
+                    return Colors.primary(for: window)
+                }
+            case .warning:
+                return Colors.Badge.textWarning
+            case .error:
+                return Colors.Badge.textError
+            }
+            return nil
+        }
+        set {
+            if labelTextColor != newValue {
+                _labelTextColor = newValue
+                updateColors()
+            }
+        }
+    }
+
+    private var _selectedLabelTextColor: UIColor?
+    @objc open var selectedLabelTextColor: UIColor {
+        get {
+            if let customSelectedLabelTextColor = _selectedLabelTextColor {
+                return customSelectedLabelTextColor
+            }
+
+            switch style {
+            case .default:
+                return Colors.Badge.textSelected
+            case .warning:
+                return Colors.Badge.textWarningSelected
+            case .error:
+                return Colors.Badge.textErrorSelected
+            }
+        }
+        set {
+            if selectedLabelTextColor != newValue {
+                _selectedLabelTextColor = newValue
+                updateColors()
+            }
+        }
+    }
+
+    private var _disabledLabelTextColor: UIColor?
+    @objc open var disabledLabelTextColor: UIColor? {
+        get {
+            if let customDisabledLabelTextColor = _disabledLabelTextColor {
+                return customDisabledLabelTextColor
+            }
+            return style == .default ? Colors.Badge.textDisabled : (isSelected ? self.selectedLabelTextColor : self.labelTextColor)
+        }
+        set {
+            if disabledBackgroundColor != newValue {
+                _disabledLabelTextColor = newValue
+                updateColors()
+            }
+        }
+    }
+
+    private var _backgroundColor: UIColor?
+    @objc open override var backgroundColor: UIColor? {
+        get {
+            if let customBackgroundColor = _backgroundColor {
+                return customBackgroundColor
+            }
+            switch style {
+            case .default:
+                if let window = window {
+                    return Colors.primaryTint40(for: window)
+                }
+            case .warning:
+                return Colors.Badge.backgroundWarning
+            case .error:
+                return Colors.Badge.backgroundError
+            }
+            return nil
+        }
+        set {
+            if backgroundColor != newValue {
+                _backgroundColor = newValue
+                updateColors()
+            }
+        }
+    }
+
+    private var _selectedBackgroundColor: UIColor?
+    @objc open var selectedBackgroundColor: UIColor? {
+        get {
+            if let customSelectedBackgroundColor = _selectedBackgroundColor {
+                return customSelectedBackgroundColor
+            }
+            switch style {
+            case .default:
+                if let window = window {
+                    return Colors.primary(for: window)
+                }
+            case .warning:
+                return Colors.Badge.backgroundWarningSelected
+            case .error:
+                return Colors.Badge.backgroundErrorSelected
+            }
+            return nil
+        }
+        set {
+            if selectedBackgroundColor != newValue {
+                _selectedBackgroundColor = newValue
+                updateColors()
+            }
+        }
+    }
+
+    private var _disabledBackgroundColor: UIColor?
+    open var disabledBackgroundColor: UIColor? {
+        get {
+            if let customDisabledBackgroundColor = _disabledBackgroundColor {
+                return customDisabledBackgroundColor
+            }
+            return style == .default ? Colors.Badge.backgroundDisabled : (isSelected ? self.selectedBackgroundColor : self.backgroundColor)
+        }
+        set {
+            if disabledBackgroundColor != newValue {
+                _disabledBackgroundColor = newValue
+                updateColors()
+            }
+        }
+    }
+
+    @objc open var minWidth: CGFloat = Constants.defaultMinWidth {
+        didSet {
+            setNeedsLayout()
+        }
+    }
+
+    /**
+     The maximum allowed size point for the label's font. This property can be used
+     to restrict the largest size of the label when scaling due to Dynamic Type. The
+     default value is 0, indicating there is no maximum size.
+     */
+    open var maxFontSize: CGFloat = 0 {
+        didSet {
+            label.maxFontSize = maxFontSize
+            invalidateIntrinsicContentSize()
+        }
+    }
+
+    open override var intrinsicContentSize: CGSize {
+        return sizeThatFits(CGSize(width: CGFloat.infinity, height: CGFloat.infinity))
+    }
+
+    private var style: Style = .default {
+        didSet {
+            updateColors()
+        }
+    }
+
+    private var size: Size = .medium {
+        didSet {
+            label.style = size.labelTextStyle
+            invalidateIntrinsicContentSize()
+        }
+    }
+
+    private var labelSize: CGSize {
+        let size = label.sizeThatFits(CGSize(width: CGFloat.infinity, height: CGFloat.infinity))
+        let width = UIScreen.main.roundToDevicePixels(size.width)
+        let height = UIScreen.main.roundToDevicePixels(size.height)
+        return CGSize(width: width, height: height)
+    }
+
+    private var customViewPadding: UIEdgeInsets {
+        let getFloat: (_ number: NSNumber?, _ defaultValue: CGFloat) -> CGFloat = { (number, defaultValue) in
+            if let number = number {
+                return CGFloat(truncating: number)
+            }
+            return defaultValue
+        }
+        let defaultVerticalPadding = size.verticalPadding
+        let defaultHorizontalPadding = size.horizontalPadding
+        return UIEdgeInsets(
+            top: getFloat(dataSource?.customViewVerticalPadding, defaultVerticalPadding),
+            left: getFloat(dataSource?.customViewPaddingLeft, defaultHorizontalPadding),
+            bottom: getFloat(dataSource?.customViewVerticalPadding, defaultVerticalPadding),
+            right: getFloat(dataSource?.customViewPaddingRight, defaultHorizontalPadding)
+        )
+    }
+
+    private let backgroundView = UIView()
+
+    private let label = Label()
+
+    @objc public init(dataSource: BadgeViewDataSource) {
+        super.init(frame: .zero)
+
+        backgroundView.layer.cornerRadius = Constants.backgroundCornerRadius
+        backgroundView.layer.cornerCurve = .continuous
+
+        addSubview(backgroundView)
+
+        label.lineBreakMode = .byTruncatingMiddle
+        label.textAlignment = .center
+        label.backgroundColor = .clear
+        addSubview(label)
+
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(badgeTapped))
+        addGestureRecognizer(tapGesture)
+        isUserInteractionEnabled = true
+
+        isAccessibilityElement = true
+        accessibilityTraits = .button
+
+        NotificationCenter.default.addObserver(self, selector: #selector(invalidateIntrinsicContentSize), name: UIContentSizeCategory.didChangeNotification, object: nil)
+
+        defer {
+            self.dataSource = dataSource
+        }
+    }
+
+    public required init?(coder aDecoder: NSCoder) {
+        preconditionFailure("init(coder:) has not been implemented")
+    }
+
+    open override func layoutSubviews() {
+        super.layoutSubviews()
+        backgroundView.frame = bounds
+
+        if let customViewSize = customViewSize(for: frame.size), customViewSize != .zero {
+			let customViewOrigin = CGPoint(x: customViewPadding.left, y: (frame.height - customViewSize.height) / 2)
+            dataSource?.customView?.frame = CGRect(origin: customViewOrigin, size: customViewSize)
+			let labelOrigin = CGPoint(x: customViewPadding.left + customViewPadding.right + customViewSize.width, y: (frame.height - labelSize.height) / 2)
+            label.frame = CGRect(origin: labelOrigin, size: labelSize)
+        } else {
+            label.frame = bounds.insetBy(dx: -size.horizontalPadding, dy: -size.verticalPadding)
+        }
+
+        flipSubviewsForRTL()
+    }
+
+    func reload() {
+        label.text = dataSource?.text
+        style = dataSource?.style ?? .default
+        size = dataSource?.size ?? .medium
+
+        dataSource?.customView?.removeFromSuperview()
+        if let customView = dataSource?.customView {
+            addSubview(customView)
+        }
+
+        setNeedsLayout()
+    }
+
+    open override func sizeThatFits(_ size: CGSize) -> CGSize {
+        let width: CGFloat
+        let height: CGFloat
+
+        if let customViewSize = customViewSize(for: size), customViewSize != .zero {
+			let heightForCustomView = customViewSize.height + customViewPadding.top + customViewPadding.bottom
+			let heightForLabel = labelSize.height + self.size.verticalPadding * 2
+            height = max(heightForCustomView, heightForLabel)
+            width = labelSize.width + customViewSize.width + customViewPadding.left + customViewPadding.right + self.size.horizontalPadding
+        } else {
+            height = labelSize.height + self.size.verticalPadding * 2
+            width = labelSize.width + self.size.horizontalPadding * 2
+        }
+
+        let maxWidth = size.width > 0 ? size.width : .infinity
+        let maxHeight = size.height > 0 ? size.height : .infinity
+
+        return CGSize(width: max(minWidth, min(width, maxWidth)), height: min(height, maxHeight))
+    }
+
+    open override func didMoveToWindow() {
+        super.didMoveToWindow()
+        updateColors()
+    }
+
+    private func customViewSize(for size: CGSize) -> CGSize? {
+        guard let customView = dataSource?.customView else {
+            return nil
+        }
+        return customView.bounds == .zero ? customView.sizeThatFits(size) : customView.bounds.size
+    }
+
+    private func updateColors() {
+        updateBackgroundColor()
+        updateLabelTextColor()
+    }
+
+    private func updateBackgroundColor() {
+        backgroundView.backgroundColor = isActive ? (isSelected ? selectedBackgroundColor : backgroundColor) : disabledBackgroundColor
+        super.backgroundColor = Colors.Badge.background
+    }
+
+    private func updateLabelTextColor() {
+        label.textColor = isActive ? (isSelected ? selectedLabelTextColor : labelTextColor) : disabledLabelTextColor
+    }
+
+    @objc private func badgeTapped() {
+        if isSelected {
+            delegate?.didTapSelectedBadge(self)
+        } else {
+            isSelected = true
+            delegate?.didSelectBadge(self)
+        }
+    }
+
+    // MARK: Accessibility
+
+    open override var accessibilityLabel: String? { get { return label.text } set { } }
+}
